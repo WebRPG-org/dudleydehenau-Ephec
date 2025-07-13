@@ -1,0 +1,17 @@
+$TTL 86400
+@   IN  SOA ns1.l2-6.ephec-ti.be. admin.l2-6.ephec-ti.be. (
+        2024031801  ; Serial
+        3600        ; Refresh
+        1800        ; Retry
+        604800      ; Expire
+        86400 )     ; Minimum TTL
+
+@   IN  NS  ns1.l2-6.ephec-ti.be.
+
+ns1 IN  A   54.36.180.56
+www IN  A   54.36.180.56
+blog IN  A   54.36.180.56
+hello IN  A   54.36.180.56
+
+$INCLUDE Kl2-6.ephec-ti.be.+008+57592.key
+$INCLUDE Kl2-6.ephec-ti.be.+008+60385.key

@@ -1,0 +1,58 @@
+<div class="carousel">
+  <h2 class="titre">{{ titreSection }}</h2>
+  <swiper-container loop="true" navigation="true" slides-per-view="5" space-between="0">
+    <swiper-slide class ="carouselElement">
+      <a routerLinkActive="active-link" routerLink="/game/chambre">
+        <img src = "assets/img/chambre.png" alt = "chambre">
+        <div class="tritreNiveau">Tritre du niveau 1</div>
+      </a>
+    </swiper-slide>
+    <swiper-slide class ="carouselElement">
+      <a routerLinkActive="active-link" routerLink="/game/prison">
+        <img src = "assets/img/prison.jpg" alt = "prison">
+        <div class="tritreNiveau">Tritre du niveau 2</div>
+      </a>
+    </swiper-slide>
+    <swiper-slide class ="carouselElement">
+      <a routerLinkActive="active-link" routerLink="/game/chateau">
+        <img src = "assets/img/chateau.jpg" alt="chateau">
+        <div class="tritreNiveau">Tritre du niveau 3</div>
+      </a>
+    </swiper-slide>
+    <swiper-slide class ="carouselElement">
+      <a routerLinkActive="active-link" routerLink="/game/espace">
+        <img src = "assets/img/espace.jpg" alt = "espace">
+        <div class="tritreNiveau">Tritre du niveau 4</div>
+      </a>
+    </swiper-slide>
+    <swiper-slide class ="carouselElement">
+      <a routerLinkActive="active-link" routerLink="/game/hopital">
+        <img src = "assets/img/hopital.jpg" alt = "hopital">
+        <div class="tritreNiveau">Tritre du niveau 5</div>
+      </a>
+    </swiper-slide>
+    <swiper-slide class ="carouselElement">
+      <a routerLinkActive="active-link" routerLink="/game/jardin">
+        <img src = "assets/img/jardin.jpg" alt = "jardin">
+        <div class="tritreNiveau">Tritre du niveau 6</div>
+      </a>
+    </swiper-slide>
+  </swiper-container>
+</div>
+
+
+
+
+<!--
+
+<div class="carousel">
+  <h2 class="titre">{{ titreSection }}</h2>
+  <swiper-container loop="true" navigation="true" slides-per-view="5" space-between="0">
+    <swiper-slide class ="carouselElement" *ngFor="let image of images">
+      <img [src]="image.src" [alt]="image.alt">
+    </swiper-slide>
+  </swiper-container>
+</div>
+
+
+-->

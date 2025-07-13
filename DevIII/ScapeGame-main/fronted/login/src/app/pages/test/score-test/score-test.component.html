@@ -1,0 +1,29 @@
+<div>
+    <h2>Tester ScoresService</h2>
+    <div>
+      <label for="levelId">Level ID:</label>
+      <input id="levelId" [(ngModel)]="levelId" type="number">
+      <span>{{ levelId }}</span> <!-- Affichage pour le débogage -->
+    </div>
+    <div>
+      <label for="userId">User ID:</label>
+      <input id="userId" [(ngModel)]="userId" type="text">
+      <span>{{ userId }}</span> <!-- Affichage pour le débogage -->
+    </div>
+    <div>
+      <label for="score">Score:</label>
+      <input id="score" [(ngModel)]="score" type="number">
+      <span>{{ score }}</span> <!-- Affichage pour le débogage -->
+    </div>
+    <div>
+      <button (click)="submitScore()">Soumettre Score</button>
+      <button (click)="getBestScore()">Récupérer Meilleur Score</button>
+    </div>
+    <div *ngIf="bestScore !== undefined">
+      <h3>Meilleur Score: {{ bestScore }}</h3>
+    </div>
+    <div *ngIf="message">
+      <h3>Message: {{ message }}</h3>
+    </div>
+  </div>
+  

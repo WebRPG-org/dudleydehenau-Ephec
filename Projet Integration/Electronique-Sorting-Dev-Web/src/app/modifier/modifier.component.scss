@@ -1,0 +1,143 @@
+.modifierBouton {
+  background: none;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: #DEB15A;
+  margin-left: auto; 
+  transition: color 0.3s;
+
+  .material-symbols-outlined {
+    margin-right: 5px;
+  }
+
+  &:hover {
+    color: #deb25a76;
+  }
+
+}
+
+.checkBoxSection{
+  margin-top: 20px;
+  margin-bottom: 40px;
+  background-color: #C8C8C8;
+  border-radius: 8px;
+}
+
+
+.titleTable{
+  font-weight: bold;
+  color: #C8C8C8;
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.custom-table {
+overflow: hidden;
+background-color: #282828;
+border: solid 2px;
+border-color: #3C3C3C;
+color: #C8C8C8;
+width: 80%;
+padding: 10px;
+margin-bottom: 40px;
+border-collapse: collapse;
+
+.image_edit{
+
+  position: relative;
+  display: inline-block;
+  .image_container{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+  }
+
+  .material-symbols-outlined{
+    color: #C8C8C8;
+    background-color: #3c3c3cbb;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+
+    &:hover{
+      background-color: #3c3c3c9a;
+      color: #c8c8c8e0;
+    }
+  }
+}
+
+
+th, td {
+  text-align: left;
+  padding: 10px;
+}
+
+th{
+  font-weight: bold;
+  background-color: #282828;
+  color: #C8C8C8;
+  border-bottom: solid 2px;
+  border-color: #3C3C3C;
+}
+
+td{
+  color: #C8C8C8;
+  border-bottom: solid 2px;
+  border-color: #3C3C3C;
+}
+
+.id-column{
+  border-right: solid 2px;
+  border-color: #3C3C3C;
+  width: 40px;
+}
+
+.delete-column {
+  width: 20px;
+}
+
+.button_delete .material-symbols-outlined{
+  color: #B3261E;
+  transition: color 0.3s;
+  &:hover{
+    cursor: pointer;
+    color: #b3261e87;
+  }
+} 
+
+.button_delete{
+  background-color: transparent;
+  border: transparent;
+
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+
+.header th{ 
+  border-bottom: solid 2px;
+  border-color: #3C3C3C;
+}
+}
+
+.editButton{
+color: #DEB15A;
+border: transparent;
+background-color: transparent;
+transition: color 0.3s;
+cursor: pointer;
+
+
+&:hover{
+  color: #deb25a76;
+}
+}

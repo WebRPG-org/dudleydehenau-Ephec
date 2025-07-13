@@ -1,0 +1,92 @@
+.modifierBouton {
+  background: none;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: #767676;
+  margin-left: auto; 
+
+  .material-symbols-outlined {
+    margin-right: 5px;
+  }
+
+  &:hover {
+    color: #7676769a;
+  }
+
+}
+
+
+.inventaire {
+  width: 100%;
+  height: auto;
+  margin: 5px;
+  margin-top: 10px;
+}
+
+.component-card {
+  position: relative;
+  width: 160px;
+  height: 200px;
+  margin-top: 15px;
+  // margin-bottom: 50px;
+  padding: 10px 5px 5px;
+  border-style: solid;
+  border-width: medium;
+  border-color: #3C3C3C;
+  background-color: #282828;
+  text-align: left;
+  border-radius: 0
+}
+
+.image-card {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  display: flex;
+  align-self: center;
+  border-radius: 0;
+  object-fit: cover;
+}
+
+hr{
+  width: 80%;
+  border-color: #C8C8C8;
+  border: solid 1px;
+  align-items: center;
+}
+
+.component-name {
+  font-weight: bold;
+  width: 100px;
+  text-align: left;
+
+  
+}
+
+.component-card-footer {
+  text-align: left; 
+}
+
+.class-caracteristic {
+  margin-left: 24px;
+  text-align: left;
+}
+
+.class-quantity {
+  text-align: right;
+  margin-left: auto;
+}
+
+.notif {
+  color: #DEB15A; 
+  border-color: #DEB15A;
+}
+
+.notifIcone {
+  color: #DEB15A;
+  position: absolute;
+  top: 0px;
+  right: 20px;
+}

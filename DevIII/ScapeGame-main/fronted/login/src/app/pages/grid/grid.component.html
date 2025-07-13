@@ -1,0 +1,11 @@
+<div class="grid">
+  <h2 class="titre">{{ titreSection }}</h2>
+  <div class="game-grid">
+    <div *ngFor="let image of images" class="gridElement">
+      <a routerLinkActive="active-link" [routerLink]="'/game/' + image.alt">
+        <img [src]="image.src" [alt]="image.alt">
+        <div class="tritreNiveau">{{ image.alt }}</div>
+      </a>
+    </div>
+  </div>
+</div>

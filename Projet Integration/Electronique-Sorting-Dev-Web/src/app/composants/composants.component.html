@@ -1,0 +1,41 @@
+<button mat-button class="modifierBouton" (click)="changePage()">
+  <span class="material-symbols-outlined">manufacturing</span>
+  Modifier
+</button>
+
+
+<div class="inventaire">
+  <mat-grid-list cols="5" rowHeight="240px">
+    <mat-grid-tile *ngFor="let component of data">
+      <div *ngIf="component.Quantity <= component.notifQuantite" class="notifIcone">
+        <span class="material-symbols-outlined">error</span>
+      </div>
+
+      <mat-card class="component-card" appearance="outlined"
+      [ngClass]="{ 'notif': component.Quantity <= component.notifQuantite }"
+      >
+        <img
+          mat-card-md-image
+          [src]="component.Feature?.Image"
+          alt="Picture of {{ component.Type?.Name }}"
+          class="image-card"
+        />
+        <hr />
+        <mat-card-content class="component-name">
+          
+          <p>{{ component.Type?.Name }}</p>
+        </mat-card-content>
+        <mat-card-footer class="component-card-footer">
+          <mat-chip-set>
+            <mat-basic-chip class="class-caracteristic">{{
+              component.Feature?.Description
+            }}</mat-basic-chip>
+            <mat-basic-chip class="class-quantity">{{
+              component.Quantity
+            }}</mat-basic-chip>
+          </mat-chip-set>
+        </mat-card-footer>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

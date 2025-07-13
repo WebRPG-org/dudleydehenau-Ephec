@@ -1,0 +1,48 @@
+services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx_web
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ./www/html:/var/www/html
+      - ./config/nginx.conf:/etc/nginx/nginx.conf
+    networks:
+      - dmz
+
+  php:
+    build:
+      context: ./php
+      dockerfile: Dockerfile
+    container_name: php
+    volumes:
+      - ./www/html:/var/www/html
+    networks:
+      - dmz
+      - db_net
+
+  mariadb:
+    container_name: mariadb
+    image: mariadb
+    volumes:
+      - db-data:/var/lib/mysql
+      - ./woodytoys.sql:/docker-entrypoint-initdb.d/woodytoys.sql
+      - ./my-resolve.cnf:/etc/mysql/conf.d/my-resolve.cnf
+    ports:
+      - "3306:3306"
+    env_file:
+      - env/root.env
+      - env/db.env
+    restart: unless-stopped
+    networks:
+      - db_net
+
+networks:
+  db_net:
+    driver: bridge
+  dmz:
+    driver: bridge
+
+volumes:
+  db-data:

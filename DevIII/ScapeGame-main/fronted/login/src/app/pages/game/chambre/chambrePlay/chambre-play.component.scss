@@ -1,0 +1,197 @@
+/* chambre-play.component.scss */
+
+.chambre-play {
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  height: 100vh; 
+  overflow: hidden; 
+}
+
+.timer {
+  position: absolute;
+  top: 210px;
+  right: 75px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+textarea {
+  resize: none;
+}
+
+.room-image {
+  width: 80%; 
+  height: 80%; 
+  object-fit: contain; 
+  margin-left: -20px;
+  margin-top: 25px; 
+}
+
+.chambre-play-info {
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  position: absolute;
+  top: -20;
+  left: 0;
+  right: 0;
+}  
+
+.btn-horloge {
+  position: absolute;
+  top: 34vh;
+  left: 70vw;
+  width: 80px;
+  height: 80px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-lampe {
+  position: absolute;
+  top: 19vh;
+  left: 40vw;
+  width: 70px;
+  height: 70px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-cadre {
+  position: absolute;
+  top: 39vh;
+  left: 61vw;
+  width: 90px;
+  height: 90px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.green {
+    color: green;
+}
+
+
+.btn-neuf {
+  position: absolute;
+  top: 90vh;
+  left: 53vw;
+  width: 43px;
+  height: 43px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-deux {
+  position: absolute;
+  top: 84vh;
+  left: 63vw;
+  width: 43px;
+  height: 43px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-cinq {
+  position: absolute;
+  top: 52vh;
+  left: 16vw;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-trois {
+  position: absolute;
+  top: 89vh;
+  left: 13vw;
+  width: 43px;
+  height: 43px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+
+
+.btn-coffre {
+  position: absolute;
+  top: 65vh;
+  left: 36vw;
+  width: 100px;
+  height: 100px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-tele {
+  position: absolute;
+  top: 28vh;
+  left: 6vw;
+  width: 150px;
+  height: 150px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-fenetre {
+  position: absolute;
+  top: 43vh;
+  left: 53vw;
+  width: 90px;
+  height: 250px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1;
+}
+
+
+
+.btn-couteau {
+  position: absolute;
+  top: 91vh;
+  left: 18vw;
+  width: 150px;
+  height: 20px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.safe-interface {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.safe-interface h3 {
+  margin-top: 0;
+}
+
+.code-input {
+  margin-bottom: 20px;
+}
+
+.code-input input {
+  width: 100px;
+  padding: 5px;
+  font-size: 16px;
+}

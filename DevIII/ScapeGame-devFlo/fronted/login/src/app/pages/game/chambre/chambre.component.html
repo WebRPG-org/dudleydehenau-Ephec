@@ -1,0 +1,41 @@
+<mat-grid-list cols="4" rowHeight="2:1.5" >
+  <mat-grid-tile [colspan]= 2 [rowspan]= 1.5>
+    <div class="content">
+      <div class = "imgJeu">
+        <img src ="assets/img/chambre.png" alt="chambre">
+      </div>
+      <div class = "textJeu">
+        <p>La chambre est un lieu de repos et de détente. C'est un endroit où l'on peut se reposer et se ressourcer. Il est important de bien aménager sa chambre pour qu'elle soit un lieu agréable et confortable. Voici quelques conseils pour bien aménager sa chambre.</p>
+      </div>
+      <button type="button" class=" playButton">Jouer</button>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]= 0.5 [rowspan]= 0.5 [style.background]="'lightpink'">like</mat-grid-tile>
+  <mat-grid-tile [colspan]= 0.5 [rowspan]= 0.5>
+    <div class="content"  >
+      <form class="commentForm" [formGroup]="form" #formDirective="ngForm" (ngSubmit)="onSubmit(form.value)">
+       <mat-form-field>
+        <mat-label>Leave a comment</mat-label>
+        <textarea matInput placeholder="Ex. It makes me feel..." formControlName="commentaryText"></textarea>
+      </mat-form-field>
+        <button color="accent" mat-raised-button type="submit"   [disabled]="form.invalid">envoyer</button>
+      </form>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]= 2 [rowspan]= 0.5>
+    <div class="content-comment">
+      <mat-card *ngFor="let comment of commentaire$ | async">
+        <button *ngIf="comment.userId === userId" mat-icon-button class="delete-button"  (click)="delete(comment.commentaryId)">
+          <mat-icon color="warn">delete</mat-icon>
+        </button>
+        <div class="date">
+          {{comment.created_at}}
+        </div>
+        <div class="bodyComment">
+          {{comment.commentaryText}}
+        </div>
+      </mat-card>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
+

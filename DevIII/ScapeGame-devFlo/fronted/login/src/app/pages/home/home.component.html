@@ -1,0 +1,42 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened">
+    <div style="padding: 1rem">
+      <h1 class="title">Filtre : </h1>
+      <h2>Difficulté :</h2>
+      <mat-checkbox>Facile</mat-checkbox>
+      <mat-checkbox>Moyen</mat-checkbox>
+      <mat-checkbox>Difficile</mat-checkbox>
+      <mat-checkbox>Extrême</mat-checkbox>
+      <h2>Thèmes :</h2>
+      <mat-checkbox>Jeux-vidéos</mat-checkbox>
+      <mat-checkbox>Casse-têtes</mat-checkbox>
+      <mat-checkbox>Culture</mat-checkbox>
+      <mat-checkbox>Dev</mat-checkbox>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <button 
+      mat-button (click)="sidenav.toggle()"
+      class="sidenav-bouton"
+    >Filtre
+      <mat-icon icon>chevron_right</mat-icon>
+    </button>
+    <div class="home-container">
+      <app-search-bar></app-search-bar>
+
+      <div class="section-carousel">
+        <div class="carousel">
+          <app-carousel [titreSection]="'Didactitielle :'"></app-carousel>
+        </div>
+
+        <div class="carousel">
+          <app-carousel [titreSection]="'Communauté :'"></app-carousel>
+        </div>
+
+        <div class="carousel">
+          <app-carousel [titreSection]="'Nouveautés :'"></app-carousel>
+        </div>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

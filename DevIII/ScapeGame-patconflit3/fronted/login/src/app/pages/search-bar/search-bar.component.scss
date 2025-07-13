@@ -1,0 +1,26 @@
+.search-bar {
+    background-color: pink;
+    border-radius: 20px;
+    padding: 10px;
+    display: inline-flex;    align-items: center;
+  }
+
+  .loupe {
+    background-color: pink;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 25px;
+  }
+
+.recherche {
+    border: none;
+  border-radius: 15px;
+  padding: 5px 10px;
+  font-size: 16px;
+  outline: none;
+  margin-left: 10px;
+}

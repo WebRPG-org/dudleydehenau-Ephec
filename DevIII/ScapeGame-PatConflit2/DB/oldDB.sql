@@ -1,0 +1,18 @@
+CREATE SCHEMA IF NOT EXISTS `login`;
+
+CREATE TABLE `login`.`user` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `nom` VARCHAR(255) NOT NULL,
+    `email` VARCHAR(255) NOT NULL,
+    `secret` VARCHAR(255) NOT NULL,
+    CONSTRAINT USERPK PRIMARY KEY(`id`)
+);
+
+CREATE TABLE `login`.`commentaire` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `userId` INT NOT NULL,
+    `commentaire` VARCHAR(255) NOT NULL,
+    `date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT COMPK PRIMARY KEY(`id`),
+    CONSTRAINT COMFK FOREIGN KEY (`userId`) REFERENCES `login`.`user`(`id`)
+);

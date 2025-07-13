@@ -1,0 +1,7 @@
+<form class="commentForm" [formGroup]="form" #formDirective="ngForm" (ngSubmit)="onSubmit(form.value)" >
+   <mat-form-field>
+      <mat-label>Leave a comment</mat-label>
+      <textarea matInput placeholder="Ex. It makes me feel..." formControlName="commentaire"></textarea>
+   </mat-form-field>
+  <button color="accent" mat-raised-button type="submit" [disabled]="form.invalid">envoyer</button>
+</form>

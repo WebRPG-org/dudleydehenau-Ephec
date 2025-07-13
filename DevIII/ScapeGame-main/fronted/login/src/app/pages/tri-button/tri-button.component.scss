@@ -1,0 +1,46 @@
+.tri {
+    position: relative;
+    display: inline-block;
+    background-color: pink;
+    border: none;
+    border-radius: 50%;
+    left: 8px;
+    top: -5px;
+}
+
+.tri-button {
+    background-color: pink;
+    border-radius: 50%;
+    border: none;
+    height: 37px;
+    font-size: 16px;
+    font-weight: bold;
+}
+  
+.tri-content {
+    display: none;
+    position: absolute;
+    background-color: pink;
+    border: none;
+    border-radius: 10px;
+    min-width: 160px;
+    padding: 12px 16px;
+    z-index: 3;
+    transition: transform 0.2s;
+}
+  
+.tri:hover .tri-content {
+    display: block;
+    transform: translateY(-12px);
+}
+  
+.tri-option {
+    display: block;
+    padding: 10px;
+    text-align: center;
+    background-color: pink;
+    border: none;
+    border-radius: 20px;
+    font-size: 18px;
+    min-width: 250px;
+}

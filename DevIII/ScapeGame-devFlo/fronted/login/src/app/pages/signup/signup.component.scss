@@ -1,0 +1,48 @@
+/* Style pour le container du formulaire */
+.page-container {
+  max-width: 400px; /* Changer selon vos besoins */
+  margin: 0 auto;
+  padding: 20px;
+  background-color:#fce4ec; /* Couleur de fond */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+/* Style pour les étiquettes des champs */
+mat-label {
+  color: #333; /* Couleur du texte */
+  font-weight: bold;
+}
+
+/* Style pour les champs de saisie */
+mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Style pour les boutons */
+button[type="submit"] {
+  width: 100%;
+  padding: 10px 0;
+  border: none;
+  border-radius: 5px;
+  background-color: red; /* Couleur de fond */
+  color: #fff; /* Couleur du texte */
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3; /* Couleur de fond au survol */
+}
+
+/* Style pour les champs de saisie invalides */
+.mat-form-field-invalid .mat-form-field-label {
+  color: #d9534f; /* Couleur du texte lorsque le champ est invalide */
+}
+
+.mat-form-field-invalid.mat-form-field-should-float .mat-form-field-label {
+  color: #d9534f; /* Couleur du texte lorsque le champ est invalide et flottant */
+}
+
+

@@ -1,0 +1,24 @@
+
+<!--La barre de navigation du haut de la page-->
+<app-barre-navigation></app-barre-navigation>
+
+
+<!--La barre de navigation sur le côté gauche de la page-->
+<mat-sidenav-container>
+    <mat-sidenav class="sidenav" mode="side" opened>
+      <mat-toolbar>
+        <div>Notifications</div>
+      </mat-toolbar>
+    </mat-sidenav>
+  
+
+    <mat-sidenav-content>
+
+      <!--Le contenu de la page-->
+      <div class="contenuPage">
+        <router-outlet></router-outlet>
+      </div>
+      
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  

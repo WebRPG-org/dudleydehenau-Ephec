@@ -1,0 +1,13 @@
+services:
+  dns:
+    image: bind9_custom
+    container_name: dns
+    ports:
+      - "53:53/udp"
+      - "53:53/tcp"
+    restart: unless-stopped
+    volumes:
+      - dns-data:/var/cache/bind
+
+volumes:
+  dns-data:

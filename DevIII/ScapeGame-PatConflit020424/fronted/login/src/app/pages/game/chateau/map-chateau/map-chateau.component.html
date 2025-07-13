@@ -1,0 +1,72 @@
+
+
+<div class="map">
+    <img class="mapChateau" src="assets/chateau/map/mapChateau.png" alt="image du chateau">
+</div>
+
+<div class="boutonsG">
+    <app-personnage></app-personnage>
+    <img class="objet" src="assets/chateau/objets/potionVert.png" alt="image de la potion verte" (click)="lave()">
+    <img class="objet" src="assets/chateau/objets/porte.png" alt="image de la porte fermé" (click)="envoyerCodePorte()">
+    <img class="objet" src="assets/chateau/objets/feu.png" alt="image des flame" (click)="pieceSecrete()">
+    <img class="objet" src="assets/chateau/objets/skull.png" alt="image du crane" (click)="tableDroite()">
+    <img class="objet" src="assets/chateau/objets/os.png" alt="image des os">
+    <img class="objet" src="assets/chateau/objets/tonneau.png" alt="image tonneau">
+</div>
+<div class="boutonsD" [innerHTML]="inventaireUtilisateur">
+    
+</div>
+    
+
+<div class="map" *ngIf="laveOn">
+    <img class="objetChateau" [src]="cheminImageLave" alt="image lave">
+</div>
+
+<div class="map" *ngIf="porteOn">
+    <img class="objetChateau" [src]="cheminImagePorteOverte" alt="image de la porte ouverte">
+</div>
+
+<div class="map" *ngIf="pieceSecreteOn">
+    <img class="objetChateau" [src]="cheminImagePieceSecrete" alt="image de la pièce secrète">
+</div>
+
+<div class="map" *ngIf="craneTableDroiteOn">
+    <img class="objetChateau" [src]="cheminImageTableDroite" alt="image de la pièce secrète">
+</div>
+
+
+
+<div class="imageIndice" *ngIf="codePorteZoneTextVisible">
+    <label for="texte">Le code :</label>
+    <form (ngSubmit)="envoyerCodePorte()">
+        <input type="text" id="codePorte" [(ngModel)]="codePorteText" name="texte" placeholder="...">
+        <button type="submit">Envoyer</button>
+    </form>
+</div>
+
+
+<!--
+
+
+<div class="imageIndice" *ngIf="imageVisibleCode2">
+    <img class="indice" [src]="cheminImageCode2" alt="code tonneau">
+</div>
+
+
+<div class="imageIndice" *ngIf="imageVisibleCode1">
+    <img class="indice" [src]="cheminImageCode1" alt="code coffre">
+</div>
+
+<div class="imageIndice" *ngIf="imageVisibleSkull">
+    <img class="indice" [src]="cheminImageSkull" alt="image indice crane">
+</div>
+
+
+
+<div class="imageIndice" *ngIf="imageVisibleCle">
+    <img class="cle" [src]="cheminImageCle" alt="clé">
+</div>
+
+
+
+-->

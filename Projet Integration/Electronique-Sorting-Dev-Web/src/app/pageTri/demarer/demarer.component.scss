@@ -1,0 +1,173 @@
+
+
+
+.boutonDemarer {
+    display: flex;
+    justify-content: center;  
+    width: 100%;       
+    margin-bottom: 50px;
+}
+
+.boutonTri {
+    display: flex;
+    align-items: center;
+    color: #DEB15A;
+    font-weight: bold;
+    font-size: 24px;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+
+    &:hover {
+        color: #deb25a55;
+    }
+
+    .material-symbols-outlined {
+        font-size: 34px;
+        margin-right: 10px; 
+        font-weight: bold;
+    }
+}
+
+
+.cadre{
+    background-color: #282828;
+    border: solid;
+    border-color: #3C3C3C;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 0 auto;
+    border-width: 2px;
+    margin-bottom: 40vh;
+}
+
+.utilisateurLigne {
+    display: flex;
+    align-items: center;
+
+    .material-symbols-outlined {
+        font-size: 28px;  
+        margin-right: 5px;
+        color: #757575;
+    }
+
+    .titreUtilisateur {
+        font-size: 18px;  
+        color: #757575;
+    }
+
+    .a{
+        padding-left: 30px;
+        padding-top: 15px;
+    }
+
+}
+
+.userValide{
+    padding-left: 5%;
+}
+
+.validerButton{
+    padding-left: 5%;
+}
+
+
+
+
+
+
+.triEnCours {
+    display: flex;
+    justify-content: center;  
+    width: 100%;       
+    margin-bottom: 50px;
+}
+
+
+
+.triEnCoursText {
+    display: flex;
+    align-items: center;
+    color: #DEB15A;
+    font-weight: bold;
+    font-size: 24px;
+    text-decoration: none;
+
+    .material-symbols-outlined {
+        font-size: 34px;
+        margin-right: 10px; 
+        font-weight: bold;
+    }
+}
+
+
+.cadreVideo{
+    background-color: #282828;
+    border: solid;
+    border-color: #3C3C3C;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 0 auto;
+    border-width: 2px;
+    margin-bottom: 25px;
+    height: 350px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+
+    .videoText{
+        color: #f44336;
+        margin-top: 50px;
+    }
+}
+
+.cadreComposants{
+    background-color: #282828;
+    border: solid;
+    border-color: #3C3C3C;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 0 auto;
+    border-width: 2px;
+    height: 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    margin-bottom: 30px;
+}
+
+.boutonArret{
+    background-color: #B3261E;
+    border: solid;
+    border-color: #741914;
+    color: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 0 auto;
+    border-width: 2px;
+    height: 25px;
+    margin-bottom: 25px;
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+
+    &:hover {
+        color: #741914;
+        background-color: #a41b13;
+    }
+    
+}
+
+

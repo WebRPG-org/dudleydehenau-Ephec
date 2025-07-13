@@ -1,0 +1,24 @@
+form {
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-top: 20px;
+}
+
+button {
+  width: 100%;
+  max-width: 200px;
+  margin-top: 20px;
+}
+
+.page-container {
+  background-color: #fce4ec;
+  min-height: 100vh;
+}
+

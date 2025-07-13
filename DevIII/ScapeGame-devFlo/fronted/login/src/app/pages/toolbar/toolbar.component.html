@@ -1,0 +1,19 @@
+<mat-toolbar>
+  <span>Scape Game</span>
+  <span class="space"></span>
+  <a routerLink="/">
+    <button mat-icon-button class="home-button" aria-label="home-icon">
+      <mat-icon>home</mat-icon>
+    </button>
+  </a>
+  <a *ngIf="!isAuthentificated" routerLinkActive="active-link" routerLink="/login">
+    <button mat-icon-button class="login-button" aria-label="login-icon">
+      <mat-icon>login</mat-icon>
+    </button>
+  </a>
+  <a *ngIf="isAuthentificated" (click)="logout()" routerLinkActive="active-link" routerLink="/login">
+    <button mat-icon-button class="login-button" aria-label="login-icon">
+    <mat-icon>logout</mat-icon>
+      </button>
+  </a>
+</mat-toolbar>

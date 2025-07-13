@@ -1,0 +1,112 @@
+.boutonEnregister{
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+    color: #DEB15A;
+    border: transparent;
+    background-color: transparent;
+    font-size: 16px;
+    padding-bottom: 2px;
+    cursor: pointer;
+
+    .material-symbols-outlined{
+      margin-right: 5px;
+    }
+
+    &:hover {
+      color: #7676769a;
+    }
+
+    &:active {
+      color: #c8c8c8;
+    }
+}
+
+.nouveau_composant {
+    background-color: #282828;
+    border: solid 2px;
+    border-color: #3C3C3C;
+    border-radius: 10px;
+  
+  
+    .form_input, .form_select{
+      padding-left: 7%;
+  
+      .ligne{
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+  
+      mat-form-field {
+        flex: 0.5; 
+      }
+  
+  
+}
+
+.texteUploadReussi{
+  padding: 20px;
+  color: #767676;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.texteErreur{
+  
+  padding: 20px;
+  color: #B3261E;
+}
+  
+    .titre{
+      font-weight: bold;
+      color: #B2B2B2;
+      font-size: 20px;
+      width: auto;
+      padding-bottom: 20px;
+    }
+    p{
+      color: #767676;
+      font-weight: bold;
+      font-size: 16px;
+      width: 100px;
+    }
+  }
+
+.titre {
+    font-size: large;
+}
+
+.newPhoto{
+  position: relative;
+  display: inline-block;
+
+  .image{
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    display: block;
+  }
+  .material-symbols-outlined{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: #C8C8C8;
+    background-color: #3c3c3cbb;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+  
+    &:hover{
+      background-color: #3c3c3c9a;
+      color: #c8c8c8e0;
+    }
+  }
+}
+
+.ohmSuffix{
+  color: black;
+  font-weight: bold;
+}

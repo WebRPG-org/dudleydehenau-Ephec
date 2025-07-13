@@ -1,0 +1,16 @@
+$TTL 3600
+@   IN  SOA neocortex.crash.greenvault.eu admi.crash.greenvault.eu. (
+        2028032601 ; serial (YYYYMMDDnn)
+        3600       ; refresh
+        1800       ; retry
+        604800     ; expire
+        86400      ; minimum TTL
+)
+
+    IN  NS  neocortex.crash.greenvault.eu.
+
+neocortex         IN  A   54.36.181.122
+www         IN  A   54.36.181.122
+ccc         IN  A   54.36.181.122
+test         IN  A   54.36.181.122
+@         IN  A   66.102.1.138

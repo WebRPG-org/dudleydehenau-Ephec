@@ -1,0 +1,174 @@
+.content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.mat-grid-list {
+  background-color: #fce4ec;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.imgJeu {
+  width: 100%;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.overlay:hover {
+  opacity: 1;
+}
+
+.playButton {
+  width: 100%;
+  height: 40px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.playButton:hover {
+  background-color: #45a049;
+}
+
+.textJeu {
+  width: 90%;
+  text-align: center;
+  font-size: 18px;
+  padding: 10px;
+  background-color: #e3f2fd;
+  border: 2px solid #90caf9;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.comment {
+  width: 100%;
+  max-height: 150px;
+  overflow-y: auto;
+  padding: 10px;
+  background-color: #e3f2fd;
+  border: 2px solid #90caf9;
+  border-radius: 5px;
+}
+
+.comment p {
+  margin: 5px 0;
+  padding: 8px 12px;
+  background-color: #90caf9;
+  color: white;
+  border-radius: 5px;
+}
+
+.content-comment {
+  width: 90%;
+  height: auto;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.content-comment:hover {
+  max-height: 200px;
+}
+
+
+.features {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #e3f2fd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.feature i {
+  font-size: 24px;
+  color: #b955d4;
+  margin-bottom: 10px;
+}
+
+.feature p {
+  font-size: 16px;
+  color: #333;
+  text-align: center;
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+.like-button {
+  display: flex;
+  align-items: center;
+}
+
+.like-icon {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #888;
+  transition: color 0.3s ease;
+  margin-right: 5px;
+}
+
+.like-icon:hover {
+  color: #b955d4;
+}
+
+.like-count {
+  font-size: 14px;
+  color: #888;
+  transition: color 0.3s ease;
+}
+
+.content-comment:hover{
+  overflow-y: visible;
+}
+.delete-button{
+  float: right;
+}

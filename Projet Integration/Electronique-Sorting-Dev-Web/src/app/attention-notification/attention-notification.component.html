@@ -1,0 +1,9 @@
+<div class="cadre" *ngFor="let notification of notifications">
+    <a href="" class="titreIcone" style="text-decoration: none;">
+        <span class="material-symbols-outlined">error</span>
+        <div class="texte">
+            <div class="titre">Quantité faible:</div>
+            <div class="sousTitre">{{notification.type}} {{notification.description}}</div>
+        </div>
+    </a>
+</div>

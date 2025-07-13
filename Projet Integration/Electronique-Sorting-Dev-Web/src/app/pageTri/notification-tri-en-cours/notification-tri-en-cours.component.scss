@@ -1,0 +1,29 @@
+.cadre{
+    border: solid;
+    border-color: #DEB15A;
+    border-radius: 8px;
+    padding: 20px;
+    border-width: 2px;
+    height: 3px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+
+    .titreIcone{
+        display: flex;
+        align-items: center;
+
+        .titre{
+            font-size: 16px;
+            font-weight: normal;
+            color: #DEB15A;
+            text-decoration: none;
+        }
+
+        .material-symbols-outlined {
+            font-size: 18px;
+            margin-right: 10px; 
+            color: #DEB15A;
+        }
+    }
+}

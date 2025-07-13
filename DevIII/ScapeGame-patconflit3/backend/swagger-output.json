@@ -1,0 +1,224 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "E-Organizer API",
+    "description": "API defined for a sample project during the course 'Développement Informatique III' à l'EPHEC Louvain-la-Neuve",
+    "version": "1.0.0"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "paths": {
+    "/auth/signup": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "userFName": {
+                  "example": "Maxime"
+                },
+                "userLName": {
+                  "example": "Delcorte"
+                },
+                "userBirth": {
+                  "example": "1997-12-12"
+                },
+                "userPassword": {
+                  "example": "password"
+                },
+                "email": {
+                  "example": "max@gmail.com"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "utilisateur enregisté",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "example": "utilisateur enregisté"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "erreur serveur"
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "example": "max@gmail.com"
+                },
+                "userPassword": {
+                  "example": "password"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "utilisateur connecté",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "token": {
+                  "example": "any"
+                }
+              }
+            }
+          },
+          "404": {
+              "description": "utilisateur non trouvé"
+          },
+          "401": {
+              "description": "mot de passe incorrect"
+          },
+          "500": {
+              "description": "erreur serveur"
+          }
+        }
+      }
+    },
+    "/commentaire/{levelId}": {
+      "get": {
+        "description": "commentaires d'un niveau",
+        "parameters": [
+          {
+            "name": "levelId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "commentaires d'un niveau",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "commentaryText": {
+                    "example": "j'aime les pommes"
+                  },
+                  "userId": {
+                    "example": "1"
+                  },
+                  "levelId": {
+                    "example": "1"
+                  }
+                    }
+                  }
+                }
+              },
+              "401": {
+                  "description": "Not authenticated!"
+              },
+              "500": {
+                  "description": "Erreur serveur"
+              }
+          }
+        }
+      },
+    "/commentaire/": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "levelId": {
+                  "example": "1"
+                },
+                "userId": {
+                  "example": "1"
+                },
+                "commentaryText": {
+                  "example": "j'aime les gens"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "posté avec succès",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "example": "posté avec succès"
+                }
+              }
+            }
+          },
+          "500": {
+              "description": "erreur serveur"
+          },
+          "401": {
+              "description": "Not authenticated!"
+          }
+        }
+      }
+    },
+    "/commentaire/{id}": {
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "example": "commentaire supprimé"
+                }
+              }
+            }
+          },
+          "500": {
+              "description": "erreur serveur"
+          },
+          "401": {
+              "description": "Not authenticated!"
+          }
+        }
+      }
+    }
+  }
+}

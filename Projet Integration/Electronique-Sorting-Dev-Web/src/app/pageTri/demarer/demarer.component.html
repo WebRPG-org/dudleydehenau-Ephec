@@ -1,0 +1,73 @@
+
+
+
+
+<button (click)="onOFF()">start</button>
+
+
+<div>
+    <div class="boutonDemarer" *ngIf="demarerPageOn">
+        <button mat-button class="boutonTri" (click)="demarerTri()">
+            <span class="material-symbols-outlined">power_settings_new</span> 
+            Démarrer un tri
+        </button>
+    </div>
+
+
+
+    <div class="cadre" *ngIf="demarerPageOn">
+        <div class="utilisateurLigne">
+            <span class="material-symbols-outlined">person</span> 
+            <div class="titreUtilisateur">Utilisateur * :</div>
+
+            <div class="a">
+
+            <mat-form-field>
+                <mat-label>Nom</mat-label>
+                <mat-select [(ngModel)]="selectedUser">
+                    <mat-option [value]="null">--</mat-option>            
+                    <mat-option *ngFor="let utilisateur of utilisateurs" [value]="utilisateur.nomProf">
+                        {{ utilisateur.nomProf }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="userValide" *ngIf="selectedUser == 'null' || selectedUser == null">
+            Aucune personne n'a sélectionnée
+        </div>
+        <div class="userValide" *ngIf="selectedUser != 'null' && selectedUser != null">
+            {{ selectedUser }} a été sélectionné
+        </div>
+    </div>
+</div>
+
+
+
+<div *ngIf="triPageOn">
+
+    <div class="triEnCours">
+        <div class="triEnCoursText">
+            <span class="material-symbols-outlined">cycle</span> 
+            Tri en cours
+        </div>
+    </div>
+
+    <button class="boutonArret" (click)="arretUrgence()">
+        <span class="material-symbols-outlined">do_not_disturb_on</span>
+        Arrêt d'urgence
+    </button>
+    
+    <div class="cadreComposants">
+        <ul>
+            <li *ngFor="let item of sortedItems">{{ item }}</li>
+          </ul>
+    </div>
+    
+    <div class="cadreVideo">
+        <mat-spinner color="warn"></mat-spinner>
+        <div class="videoText">La vidéo du tri en cours n'est pas disponible pour le moment</div>
+    </div>
+
+</div>
+
+

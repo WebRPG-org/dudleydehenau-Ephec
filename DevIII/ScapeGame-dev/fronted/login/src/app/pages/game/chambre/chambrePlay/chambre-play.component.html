@@ -1,0 +1,54 @@
+<!-- chambre-play.component.html -->
+
+<div class="chambre-play-info">
+  <p>Vous êtes dans la chambre du manoir. Il semble richement décoré, mais quelque chose ne va pas...</p>
+  <p>Explorez la pièce en cliquant sur les éléments pour trouver des indices.</p>
+</div>
+
+<div class="chambre-play">
+
+  <div class="timer">
+    <p>Temps écoulé : {{ formatTimer(timer) }}</p>
+  </div>
+
+  <button class="btn-horloge" (click)="inspecterHorloge()"></button>
+
+  <button class="btn-tele" (click)="inspecterTele()"></button>
+
+  <button class="btn-couteau" (click)="inspecterCouteau()"></button>
+
+  <button class="btn-coffre" (click)="openCoffre()"></button>
+
+  <button class="btn-lampe" (click)="openLampe()"></button>
+
+  <button class="btn-cadre" (click)="openCadre()"></button>
+
+  <button class="btn-neuf" (click)="openNeuf()"></button>
+
+  <button class="btn-deux" (click)="openDeux()"></button>
+  
+  <button class="btn-cinq" (click)="openCinq()"></button>
+
+  <button class="btn-trois" (click)="openTrois()"></button>
+
+  
+  <button class="btn-fenetre" (click)="moveFenetre()"></button>
+  <img src="assets/img/scene-crime-nuit-lieu-meurtre-dans-piece-sombre_33099-2442.jpg" alt="Salon du manoir" class="room-image">
+
+  <div class="safe-interface" *ngIf="showCodeInterface">
+    <h3>Entrez le code du coffre :</h3>
+    <div class="code-input">
+      <input type="text" [(ngModel)]="codeInput" maxlength="4">
+    </div>
+    <button (click)="submitCode()">Valider</button>
+    <button (click)="closeSafeInterface()">Fermer</button>
+  </div>
+
+  <div *ngIf="codeCorrect" class="score-display">
+    <h3>Bravo !</h3>
+    <p>Votre score de partie est de {{ score }}</p>
+  </div>
+
+  <textarea rows="35" cols="50" readonly>{{ journalEntries.concat(codeColors, codeInput).join('\n••••••••\n') }}</textarea>
+
+</div>

@@ -1,0 +1,99 @@
+
+<!-- Pièce du haut -->
+<div class="zoneClick" style="top: 50%; left: 57.5%; width: 2%; height: 3.5%; " (click)="craneTablDroitClick()"></div>
+<div class="zoneClick" style="top: 50%; left: 55.4%; width: 2%; height: 3.5%;" (click)="craneTablGaucheClick()"></div>
+<div class="zoneClick" style="top: 38%; left: 45%; width: 2%; height: 5%;" (click)="craneLivreClick()"></div>
+<div class="zoneClick" style="top: 28.7%; left: 57.3%; width: 2.5%; height: 3.7%;" (click)="coffreOuvert()"></div>
+<div class="zoneClick" style="top: 23%; left: 45%; width: 2%; height: 4%;" (click)="pieceSecrete()"></div>
+<div class="zoneClick" style="top: 38%; left: 42.5%; width: 2.3%; height: 5%;" (click)="carnet()"></div>
+
+<div class="zoneClick" style="top: 79%; left: 61.5%; width: 2%; height: 3.5%;" (click)="monstreDroit()"></div>
+<div class="zoneClick" style="top: 79%; left: 36.5%; width: 2%; height: 3.5%;" (click)="monstreGauche()"></div>
+
+<div class="zoneClick" style="top: 33.4%; left: 65%; width: 2.3%; height: 5%;" (click)="osCle()"></div>
+
+
+
+<div class="boutonsG">
+    <app-personnage></app-personnage>
+</div>
+
+
+
+<div class="map">
+    <img class="mapChateau" src="assets/chateau/map/mapChateau.png" alt="image du chateau">
+</div>
+
+
+    
+
+<div class="map" *ngIf="laveOn">
+    <img class="objetChateau" [src]="cheminImageLave" alt="image lave">
+</div>
+
+
+<div class="map" *ngIf="pieceSecreteOn">
+    <app-piece-secrete></app-piece-secrete>
+</div>
+
+<div class="map" *ngIf="coffreOn">
+    <img class="objetChateau" [src]="cheminImageCoffre" alt="image du coffre">
+</div>
+
+<div class="map" *ngIf="flamePorteOn">
+    <img class="objetChateau" [src]="cheminImageFlamePorte" alt="image de la flamme alumée">
+</div>
+
+
+<div class="map" *ngIf="craneTableDroiteOn">
+    <img class="objetChateau" [src]="cheminImageTableDroite" alt="image du crane">
+</div>
+
+<div class="map" *ngIf="craneTableGaucheOn">
+    <img class="objetChateau" [src]="cheminImageTableGauche" alt="image du crane">
+</div>
+
+<div class="map" *ngIf="craneLivreOn">
+    <img class="objetChateau" [src]="cheminImageLivre" alt="image du crane">
+</div>
+
+
+
+<div class="imageIndice" *ngIf="carnetOn">
+    <app-carnet></app-carnet>
+</div>
+
+
+<div class="map" *ngIf="osMystique">
+    <img class="objetChateauOs" src="assets/chateau/indices/bones.png" alt="image du crane">
+</div>
+
+
+<div class="map" *ngIf="osCode">
+    <img class="objetChateauOs" src="assets/chateau/indices/codePorteOsFeuCrane.png" alt="image du crane">
+</div>
+
+
+
+<div class="map" *ngIf="osGauche">
+    <img class="objetChateau" src="assets/chateau/map/osGauche.png" alt="image du crane">
+    <div class="zoneClick" style="top: 87%; left: 38%; width: 2%; height: 3.5%;" (click)="osIndice()"></div>
+</div>
+
+<div class="map" *ngIf="osDroit">
+    <img class="objetChateau" src="assets/chateau/map/osDroit.png" alt="image du crane">
+    <div class="zoneClick" style="top: 87%; left: 62%; width: 2%; height: 3.5%;" (click)="osIndiceCode()"></div>
+</div>
+
+<div class="map" *ngIf="osCleCoffre">
+    <div class="boutonsD">
+        <img class="objet" src="assets/chateau/objets/key.png" alt="image clé" (click)="cle()">
+    </div>
+</div>
+
+
+
+
+<div class="imageIndice" *ngIf="alphabetOn">
+    <img src="assets/chateau/indices/alphabet.png" alt="image du crane">
+</div>

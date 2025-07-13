@@ -1,0 +1,450 @@
+<button mat-button class="modifierBouton" (click)="changePage()">
+  <span class="material-symbols-outlined">save</span>
+  Enregistrer
+</button>
+
+<div class="checkBoxSection">
+  <mat-checkbox class="checkBox" [(ngModel)]="tableResistanceShowBox" (change)="activeTable('resistance')">Les résistances</mat-checkbox>
+  <mat-checkbox class="checkBox" [(ngModel)]="tableLedShowBox" (change)="activeTable('led')">Les LEDs</mat-checkbox>
+  <mat-checkbox class="checkBox" [(ngModel)]="tableTransistorShowBox" (change)="activeTable('transistor')">Les transistors et puces</mat-checkbox>
+  <mat-checkbox class="checkBox" [(ngModel)]="tableCondensateurShowBox" (change)="activeTable('condensateur')">Les condensateurs</mat-checkbox>
+  <mat-checkbox class="checkBox" [(ngModel)]="tableDiodeShowBox" (change)="activeTable('diode')">Les diodes</mat-checkbox>
+</div>
+
+
+
+
+<!--TABLE RESISTANCES-->
+<div *ngIf="tableResistanceShow" class="titleTable">Les résistances</div>
+<table *ngIf="tableResistanceShow" mat-table [dataSource]="composantsResistances" class="custom-table">
+
+
+<!--colonne id du component-->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef class="id-column">N°</th>
+    <td mat-cell *matCellDef="let component; let i = index" class="id-column"> {{compteur + i + 1}} </td>
+  </ng-container>
+
+  <!--colonne image du component-->
+  <ng-container matColumnDef="image">
+    <th mat-header-cell *matHeaderCellDef>Images</th>
+    <td mat-cell *matCellDef="let component"> 
+      <div class="image_edit">
+        <img [src]="component.Feature?.Image" class="image_container"/>
+        <span class="material-symbols-outlined" (click)="uploadImage()">
+          add_a_photo
+        </span>
+        <input
+          type="file"
+          id="userImage"
+          accept="image/*"
+          (change)="imageSelected($event, component.Feature.Id)"
+          style="display: none;"
+        />
+
+      </div>
+    </td>
+  </ng-container>
+
+  <!--colonne type du component-->
+  <ng-container matColumnDef="type">
+    <th mat-header-cell *matHeaderCellDef>Type</th>
+    <td mat-cell *matCellDef="let component; let t = index"> {{component.Type?.Name}} 
+    </td>
+  </ng-container>
+
+  <!--colonne valeur du component-->
+  <ng-container matColumnDef="value">
+    <th mat-header-cell *matHeaderCellDef>Valeur</th>
+    <td mat-cell *matCellDef="let component; let v = index"> {{component.Feature?.Description}}
+      <button class="editButton" (click)="editValue(v, component.Feature?.Description)"><span class="material-symbols-outlined">edit</span></button> 
+      <div *ngIf="valueEdit_On === v">
+        <mat-form-field>
+          <mat-label>Nouvelle valeur</mat-label>
+          <input matInput type="string" [(ngModel)]="temporaryValue">
+        </mat-form-field>
+        <button class="editButton" (click)="saveValue(component)"><span class="material-symbols-outlined">save</span></button> 
+      </div>
+    </td>
+  </ng-container>
+
+  <!--colonne quantité du component-->
+  <ng-container matColumnDef="quantity">
+    <th mat-header-cell *matHeaderCellDef>Quantité</th>
+    <td mat-cell *matCellDef="let component; let q = index"> {{component.Quantity}} 
+      <button class="editButton" (click)="editQuantity(q, component.Quantity)"><span class="material-symbols-outlined">edit</span></button> 
+      <div *ngIf="quantityEdit_On === q">
+        <mat-form-field>
+          <mat-label>Nouvelle quantité</mat-label>
+          <input matInput type="number" [(ngModel)]="temporaryQuantity" min="0">
+        </mat-form-field>
+        <button class="editButton" (click)="saveQuantity(component)"><span class="material-symbols-outlined">save</span></button> 
+      </div>
+    </td>
+  </ng-container>
+
+  <!--colonne supprimer le component-->
+  <ng-container matColumnDef="delete">
+    <th mat-header-cell *matHeaderCellDef class="delete-column"></th>
+    <td mat-cell *matCellDef="let component">
+      <button class="button_delete" (click)="confirmDeleteWindow(component)">
+          <span class="material-symbols-outlined">delete</span>
+      </button>
+    </td>
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="headerNames"></tr>
+  <tr mat-row *matRowDef="let row; columns: headerNames;"></tr>
+
+
+</table>
+
+
+
+<!--TABLE LEDS-->
+<div class="titleTable" *ngIf="tableLedShow">Les LEDs</div>
+<table *ngIf="tableLedShow" mat-table [dataSource]="composantsLeds" class="custom-table">
+
+
+  <!--colonne id du component-->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef class="id-column">N°</th>
+      <td mat-cell *matCellDef="let component; let i = index" class="id-column"> {{compteur + i + 1}} </td>
+    </ng-container>
+  
+    <!--colonne image du component-->
+    <ng-container matColumnDef="image">
+      <th mat-header-cell *matHeaderCellDef>Images</th>
+      <td mat-cell *matCellDef="let component"> 
+        <div class="image_edit">
+          <img [src]="component.Feature?.Image" class="image_container"/>
+          <span class="material-symbols-outlined" (click)="uploadImage()">
+            add_a_photo
+          </span>
+          <input
+            type="file"
+            id="userImage"
+            accept="image/*"
+            (change)="imageSelected($event, component.Feature.Id)"
+            style="display: none;"
+          />
+  
+        </div>
+      </td>
+    </ng-container>
+  
+    <!--colonne type du component-->
+    <ng-container matColumnDef="type">
+      <th mat-header-cell *matHeaderCellDef>Type</th>
+      <td mat-cell *matCellDef="let component; let t = index"> {{component.Type?.Name}} 
+    </ng-container>
+  
+    <!--colonne valeur du component-->
+    <ng-container matColumnDef="value">
+      <th mat-header-cell *matHeaderCellDef>Valeur</th>
+      <td mat-cell *matCellDef="let component; let v = index"> {{component.Feature?.Description}}
+        <button class="editButton" (click)="editValue(v, component.Feature?.Description)"><span class="material-symbols-outlined">edit</span></button> 
+        <div *ngIf="valueEdit_On === v">
+          <mat-form-field>
+            <mat-label>Nouvelle valeur</mat-label>
+            <input matInput type="string" [(ngModel)]="temporaryValue">
+          </mat-form-field>
+          <button class="editButton" (click)="saveValue(component)"><span class="material-symbols-outlined">save</span></button> 
+        </div>
+      </td>
+    </ng-container>
+  
+    <!--colonne quantité du component-->
+    <ng-container matColumnDef="quantity">
+      <th mat-header-cell *matHeaderCellDef>Quantité</th>
+      <td mat-cell *matCellDef="let component; let q = index"> {{component.Quantity}} 
+        <button class="editButton" (click)="editQuantity(q, component.Quantity)"><span class="material-symbols-outlined">edit</span></button> 
+        <div *ngIf="quantityEdit_On === q">
+          <mat-form-field>
+            <mat-label>Nouvelle quantité</mat-label>
+            <input matInput type="number" [(ngModel)]="temporaryQuantity" min="0">
+          </mat-form-field>
+          <button class="editButton" (click)="saveQuantity(component)"><span class="material-symbols-outlined">save</span></button> 
+        </div>
+      </td>
+    </ng-container>
+  
+    <!--colonne supprimer le component-->
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef class="delete-column"></th>
+      <td mat-cell *matCellDef="let component">
+        <button class="button_delete" (click)="confirmDeleteWindow(component)">
+            <span class="material-symbols-outlined">delete</span>
+        </button>
+      </td>
+    </ng-container>
+  
+  
+    <tr mat-header-row *matHeaderRowDef="headerNames"></tr>
+    <tr mat-row *matRowDef="let row; columns: headerNames;"></tr>
+  
+  
+  </table>
+
+
+
+<!--TABLE TRANSISTORS-->
+<div class="titleTable" *ngIf="tableTransistorShow">Les transistors et puces</div>
+<table *ngIf="tableTransistorShow" mat-table [dataSource]="composantsTransistors" class="custom-table">
+
+
+  <!--colonne id du component-->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef class="id-column">N°</th>
+      <td mat-cell *matCellDef="let component; let i = index" class="id-column"> {{compteur + i + 1}} </td>
+    </ng-container>
+  
+    <!--colonne image du component-->
+    <ng-container matColumnDef="image">
+      <th mat-header-cell *matHeaderCellDef>Images</th>
+      <td mat-cell *matCellDef="let component"> 
+        <div class="image_edit">
+          <img [src]="component.Feature?.Image" class="image_container"/>
+          <span class="material-symbols-outlined" (click)="uploadImage()">
+            add_a_photo
+          </span>
+          <input
+            type="file"
+            id="userImage"
+            accept="image/*"
+            (change)="imageSelected($event, component.Feature.Id)"
+            style="display: none;"
+          />
+  
+        </div>
+      </td>
+    </ng-container>
+  
+    <!--colonne type du component-->
+    <ng-container matColumnDef="type">
+      <th mat-header-cell *matHeaderCellDef>Type</th>
+      <td mat-cell *matCellDef="let component; let t = index"> {{component.Type?.Name}} 
+    </ng-container>
+  
+    <!--colonne valeur du component-->
+    <ng-container matColumnDef="value">
+      <th mat-header-cell *matHeaderCellDef>Valeur</th>
+      <td mat-cell *matCellDef="let component; let v = index"> {{component.Feature?.Description}}
+        <button class="editButton" (click)="editValue(v, component.Feature?.Description)"><span class="material-symbols-outlined">edit</span></button> 
+        <div *ngIf="valueEdit_On === v">
+          <mat-form-field>
+            <mat-label>Nouvelle valeur</mat-label>
+            <input matInput type="string" [(ngModel)]="temporaryValue">
+          </mat-form-field>
+          <button class="editButton" (click)="saveValue(component)"><span class="material-symbols-outlined">save</span></button> 
+        </div>
+      </td>
+    </ng-container>
+  
+    <!--colonne quantité du component-->
+    <ng-container matColumnDef="quantity">
+      <th mat-header-cell *matHeaderCellDef>Quantité</th>
+      <td mat-cell *matCellDef="let component; let q = index"> {{component.Quantity}} 
+        <button class="editButton" (click)="editQuantity(q, component.Quantity)"><span class="material-symbols-outlined">edit</span></button> 
+        <div *ngIf="quantityEdit_On === q">
+          <mat-form-field>
+            <mat-label>Nouvelle quantité</mat-label>
+            <input matInput type="number" [(ngModel)]="temporaryQuantity" min="0">
+          </mat-form-field>
+          <button class="editButton" (click)="saveQuantity(component)"><span class="material-symbols-outlined">save</span></button> 
+        </div>
+      </td>
+    </ng-container>
+  
+    <!--colonne supprimer le component-->
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef class="delete-column"></th>
+      <td mat-cell *matCellDef="let component">
+        <button class="button_delete" (click)="confirmDeleteWindow(component)">
+            <span class="material-symbols-outlined">delete</span>
+        </button>
+      </td>
+    </ng-container>
+  
+  
+    <tr mat-header-row *matHeaderRowDef="headerNames"></tr>
+    <tr mat-row *matRowDef="let row; columns: headerNames;"></tr>
+  
+  
+  </table>
+
+
+
+
+<!--TABLE CONDENSATEURS-->
+<div class="titleTable" *ngIf="tableCondensateurShow">Les condensateurs</div>
+<table *ngIf="tableCondensateurShow" mat-table [dataSource]="composantsCondensateur" class="custom-table">
+  
+  
+  <!--colonne id du component-->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef class="id-column">N°</th>
+      <td mat-cell *matCellDef="let component; let i = index" class="id-column"> {{compteur + i + 1}} </td>
+    </ng-container>
+    
+    <!--colonne image du component-->
+    <ng-container matColumnDef="image">
+      <th mat-header-cell *matHeaderCellDef>Images</th>
+      <td mat-cell *matCellDef="let component"> 
+        <div class="image_edit">
+          <img [src]="component.Feature?.Image" class="image_container"/>
+          <span class="material-symbols-outlined" (click)="uploadImage()">
+            add_a_photo
+          </span>
+          <input
+            type="file"
+            id="userImage"
+            accept="image/*"
+            (change)="imageSelected($event, component.Feature.Id)"
+            style="display: none;"
+          />
+    
+        </div>
+      </td>
+    </ng-container>
+    
+    <!--colonne type du component-->
+    <ng-container matColumnDef="type">
+      <th mat-header-cell *matHeaderCellDef>Type</th>
+      <td mat-cell *matCellDef="let component; let t = index"> {{component.Type?.Name}} 
+    </ng-container>
+    
+    <!--colonne valeur du component-->
+    <ng-container matColumnDef="value">
+      <th mat-header-cell *matHeaderCellDef>Valeur</th>
+      <td mat-cell *matCellDef="let component; let v = index"> {{component.Feature?.Description}}
+        <button class="editButton" (click)="editValue(v, component.Feature?.Description)"><span class="material-symbols-outlined">edit</span></button> 
+        <div *ngIf="valueEdit_On === v">
+          <mat-form-field>
+            <mat-label>Nouvelle valeur</mat-label>
+            <input matInput type="string" [(ngModel)]="temporaryValue">
+          </mat-form-field>
+          <button class="editButton" (click)="saveValue(component)"><span class="material-symbols-outlined">save</span></button> 
+        </div>
+      </td>
+    </ng-container>
+    
+    <!--colonne quantité du component-->
+    <ng-container matColumnDef="quantity">
+      <th mat-header-cell *matHeaderCellDef>Quantité</th>
+      <td mat-cell *matCellDef="let component; let q = index"> {{component.Quantity}} 
+        <button class="editButton" (click)="editQuantity(q, component.Quantity)"><span class="material-symbols-outlined">edit</span></button> 
+        <div *ngIf="quantityEdit_On === q">
+          <mat-form-field>
+            <mat-label>Nouvelle quantité</mat-label>
+            <input matInput type="number" [(ngModel)]="temporaryQuantity" min="0">
+          </mat-form-field>
+          <button class="editButton" (click)="saveQuantity(component)"><span class="material-symbols-outlined">save</span></button> 
+        </div>
+      </td>
+    </ng-container>
+    
+    <!--colonne supprimer le component-->
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef class="delete-column"></th>
+      <td mat-cell *matCellDef="let component">
+        <button class="button_delete" (click)="confirmDeleteWindow(component)">
+            <span class="material-symbols-outlined">delete</span>
+        </button>
+      </td>
+    </ng-container>
+    
+    
+    <tr mat-header-row *matHeaderRowDef="headerNames"></tr>
+    <tr mat-row *matRowDef="let row; columns: headerNames;"></tr>
+    
+    
+</table>
+
+
+<!--TABLE DIODES-->
+<div class="titleTable" *ngIf="tableDiodeShow">Les diodes</div>
+<table *ngIf="tableDiodeShow" mat-table [dataSource]="composantsDiode" class="custom-table">
+  
+  
+  <!--colonne id du component-->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef class="id-column">N°</th>
+      <td mat-cell *matCellDef="let component; let i = index" class="id-column"> {{compteur + i + 1}} </td>
+    </ng-container>
+    
+
+    <!--colonne image du component-->
+    <ng-container matColumnDef="image">
+      <th mat-header-cell *matHeaderCellDef>Images</th>
+      <td mat-cell *matCellDef="let component"> 
+        <div class="image_edit">
+          <img [src]="component.Feature?.Image" class="image_container"/>
+          <span class="material-symbols-outlined" (click)="uploadImage()">
+            add_a_photo
+          </span>
+          <input
+            type="file"
+            id="userImage"
+            accept="image/*"
+            (change)="imageSelected($event, component.Feature.Id)"
+            style="display: none;"
+          />
+    
+        </div>
+      </td>
+    </ng-container>
+    
+    <!--colonne type du component-->
+    <ng-container matColumnDef="type">
+      <th mat-header-cell *matHeaderCellDef>Type</th>
+      <td mat-cell *matCellDef="let component; let t = index"> {{component.Type?.Name}} 
+    </ng-container>
+    
+    <!--colonne valeur du component-->
+    <ng-container matColumnDef="value">
+      <th mat-header-cell *matHeaderCellDef>Valeur</th>
+      <td mat-cell *matCellDef="let component; let v = index"> {{component.Feature?.Description}}
+        <button class="editButton" (click)="editValue(v, component.Feature?.Description)"><span class="material-symbols-outlined">edit</span></button> 
+        <div *ngIf="valueEdit_On === v">
+          <mat-form-field>
+            <mat-label>Nouvelle valeur</mat-label>
+            <input matInput type="string" [(ngModel)]="temporaryValue">
+          </mat-form-field>
+          <button class="editButton" (click)="saveValue(component)"><span class="material-symbols-outlined">save</span></button> 
+        </div>
+      </td>
+    </ng-container>
+    
+    <!--colonne quantité du component-->
+    <ng-container matColumnDef="quantity">
+      <th mat-header-cell *matHeaderCellDef>Quantité</th>
+      <td mat-cell *matCellDef="let component; let q = index"> {{component.Quantity}} 
+        <button class="editButton" (click)="editQuantity(q, component.Quantity)"><span class="material-symbols-outlined">edit</span></button> 
+        <div *ngIf="quantityEdit_On === q">
+          <mat-form-field>
+            <mat-label>Nouvelle quantité</mat-label>
+            <input matInput type="number" [(ngModel)]="temporaryQuantity" min="0">
+          </mat-form-field>
+          <button class="editButton" (click)="saveQuantity(component)"><span class="material-symbols-outlined">save</span></button> 
+        </div>
+      </td>
+    </ng-container>
+    
+    <!--colonne supprimer le component-->
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef class="delete-column"></th>
+      <td mat-cell *matCellDef="let component">
+        <button class="button_delete" (click)="confirmDeleteWindow(component)">
+            <span class="material-symbols-outlined">delete</span>
+        </button>
+      </td>
+    </ng-container>
+    
+    
+    <tr mat-header-row *matHeaderRowDef="headerNames"></tr>
+    <tr mat-row *matRowDef="let row; columns: headerNames;"></tr>
+    
+    
+</table>

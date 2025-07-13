@@ -1,0 +1,22 @@
+{
+  "en": {
+    "project": "en.wikipedia",
+    "country": "United States",
+    "stop_words": "english"
+  },
+  "fr": {
+    "project": "fr.wikipedia",
+    "country": "France",
+    "stop_words": "french"
+  },
+  "de": {
+    "project": "de.wikipedia",
+    "country": "Germany",
+    "stop_words": "german"
+  },
+  "es": {
+    "project": "es.wikipedia",
+    "country": "Spain",
+    "stop_words": "spanish"
+  }
+}

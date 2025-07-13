@@ -1,0 +1,99 @@
+
+    <button *ngIf="boutonActive" class="boutonEnregister" mat-raised-button color="primary" (click)="submitNewComponent()">
+      <span class="material-symbols-outlined">save</span>
+      Enregistrer
+    </button>
+    <mat-card class="nouveau_composant">
+      <mat-card-content>
+        <p class="titre">Nom du composant</p>
+        <div class="form_select">
+  
+          
+  
+          <div class="ligne">
+  
+            <div class="newPhoto">
+              <img *ngIf="imageExiste" [src]="imageTemporaire" class="image" alt="Aperçu de l'image"/>
+              <img *ngIf="noImageExiste" src="assets/noImage.jpg" class="image" alt="Aperçu de l'image"/>
+              <span *ngIf="boutonActive" class="material-symbols-outlined" (click)="uploadPhoto()">
+                add_a_photo
+              </span>
+              <div *ngIf="imageExiste">{{filePath}}</div>
+
+              <input
+                type="file"
+                id="nouvelleImgaComposant"
+                accept="image/*"
+                (change)="selectionImage($event)"
+                style="display: none;"
+              />
+            </div>
+  
+            <mat-form-field>
+              <mat-label>Type</mat-label>
+              <mat-select [(ngModel)]="selectedType" (selectionChange)="afficheInsertionValeur($event)">
+                <mat-option [value]="null">--</mat-option>
+                <mat-option *ngFor="let type of typeComposantsListe" [value]="type.Id">
+                  {{type.Name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field *ngIf="newValueText.led">
+              <mat-label>Valeur</mat-label>
+              <input matInput [(ngModel)]="newValeurUserText.led"/>
+              <mat-hint>exemples : Bleu, Rouge, Vert,...</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field *ngIf="newValueText.resistance">
+              <mat-label>Valeur</mat-label>
+              <input matInput [(ngModel)]="newValeurUserText.resistance"/>
+              <span matTextSuffix class="ohmSuffix">Ω</span>
+              <mat-hint>exemples : 100Ω, 220Ω, ...</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field *ngIf="newValueText.transistor">
+              <mat-label>Valeur</mat-label>
+              <input matInput [(ngModel)]="newValeurUserText.transistor"/>
+              <mat-hint>exemples : 2N2222, ...</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field *ngIf="newValueText.condensateur">
+              <mat-label>Valeur</mat-label>
+              <input matInput [(ngModel)]="newValeurUserText.condensateur"/>
+              <mat-hint>exemples : 6.8nF, 8nF, 10μF, ...</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field *ngIf="newValueText.condensateur">
+              <mat-label>Farad</mat-label>
+              <mat-select [(ngModel)]="defaultUnit">
+                <mat-option [value]="1">nF</mat-option>
+                <mat-option [value]="2">μF</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field *ngIf="newValueText.diode">
+              <mat-label>Valeur</mat-label>
+              <input matInput [(ngModel)]="newValeurUserText.diode"/>
+              <mat-hint>exemples : 1N4004, ZA12, ...</mat-hint>
+            </mat-form-field>
+
+          </div>
+        </div>
+      </mat-card-content>
+      <div class="texteErreur" *ngIf="messageErreurImage">Impossible d'ajouter le composant : <strong>Aucune image</strong> n'a été sélectionnée.</div>
+      <div class="texteErreur" *ngIf="messageErreurValeur">Impossible d'ajouter le composant : <strong>Aucune valeur</strong>  pour le composant n'a été ajoutée.</div>
+      <div class="texteErreur" *ngIf="messageErreurUnite">Impossible d'ajouter le composant : <strong>Aucune unitée</strong> n'a été sélectionnée pour le condensateur.</div>
+      <div class="texteErreur" *ngIf="messageErreurDoublon">Impossible d'ajouter le composant : <strong>Ce componsant existe déjà.</strong></div>
+      <div class="texteUploadReussi" *ngIf="messageAjout">
+        <span class="material-symbols-outlined">
+          check
+          </span>
+          Le composant à bien été ajouté
+          &nbsp;
+          <button (click)="reinitialisation()">Ajouter un autre composant</button>
+      </div>
+    </mat-card>
+
+
+  

@@ -1,0 +1,80 @@
+.box {
+  padding: 50px 50px 50px;
+
+  .boutonEnregister{
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+    color: #DEB15A;
+    border: transparent;
+    background-color: transparent;
+    font-size: 16px;
+    padding-bottom: 2px;
+    cursor: pointer;
+
+    .material-symbols-outlined{
+      margin-right: 5px;
+    }
+
+    &:hover {
+      color: #7676769a;
+    }
+
+    &:active {
+      color: #c8c8c8;
+    }
+  }
+}
+
+.valeurs, .modifications, .utilisateur{
+  background-color: #282828;
+  border: solid 2px;
+  border-color: #3C3C3C;
+  border-radius: 10px;
+
+
+  .form_input, .form_select{
+    padding-left: 7%;
+
+    .ligne{
+      display: flex;
+      align-items: center;
+      gap: 70px;
+      width: auto;
+      white-space: nowrap;
+    }
+
+    mat-form-field {
+      flex: 0.5; 
+    }
+
+    .messageValidation{
+      padding-bottom: 20px;
+      color: #767676;
+    }
+
+    .messageValidationError{
+      padding-bottom: 20px;
+      color: #B3261E;
+      font-weight: bold;
+    }
+  }
+
+  .titre{
+    font-weight: bold;
+    color: #B2B2B2;
+    font-size: 20px;
+    width: auto;
+    padding-bottom: 20px;
+  }
+  p{
+    color: #767676;
+    font-weight: bold;
+    font-size: 16px;
+    width: 100px;
+  }
+}
+
+.titre {
+  font-size: large;
+}

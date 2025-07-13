@@ -1,0 +1,14 @@
+<div class="tri">
+    <button class="tri-button">⇕Tri</button>
+    <div class="tri-content">
+        <button class="tri-option" (click)="tri('option1')">
+            <i class="fa {{triState.option1 === 'asc' ? 'fa-arrow-up' : 'fa-arrow-down'}}"></i> Nombre de likes.
+          </button>
+          <button class="tri-option" (click)="tri('option2')">
+            <i class="fa {{triState.option2 === 'asc' ? 'fa-arrow-up' : 'fa-arrow-down'}}"></i> Date de publication.
+          </button>
+          <button class="tri-option" (click)="tri('option3')">
+            <i class="fa {{triState.option3 === 'asc' ? 'fa-arrow-up' : 'fa-arrow-down'}}"></i> Nombre de vue.
+          </button>
+    </div>
+</div>

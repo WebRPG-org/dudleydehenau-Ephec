@@ -1,0 +1,13 @@
+services:
+  dns:
+    image: internetsystemsconsortium/bind9:9.18
+    container_name: dns
+    restart: always
+    ports:
+      - "53:53/udp"
+      - "53:53/tcp"
+    volumes:
+      - ./named.conf:/etc/bind/named.conf
+      - ./l2-6.zone:/etc/bind/l2-6.zone
+#    command: ["named", "-g"]
+

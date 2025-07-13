@@ -1,0 +1,42 @@
+<mat-grid-list cols="4" rowHeight="2:1.5" >
+  <mat-grid-tile [colspan]= 2 [rowspan]= 1.5>
+    <div class="content">
+      <div class = "imgJeu">
+        <img src ="assets/img/chateau.jpg" alt="chambre">
+      </div>
+      <div class = "textJeu">
+        <p>Le château est un endroit mystérieux et captivant, où chaque salle regorge de secrets à découvrir. En parcourant ses couloirs et ses pièces majestueuses, vous serez amené à interagir avec des objets intrigants et à résoudre des énigmes astucieuses. Votre mission est de percer les mystères du château et de trouver un moyen de vous en échapper. Préparez-vous à vivre une aventure palpitante, où chaque détail compte !</p>
+      </div>
+      <a routerLinkActive="active-link" routerLink="/game/chateau/niveau">
+        <button type="button" class=" playButton">Jouer</button>
+      </a>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]= 0.5 [rowspan]= 0.5 [style.background]="'lightpink'">like</mat-grid-tile>
+  <mat-grid-tile [colspan]= 0.5 [rowspan]= 0.5>
+    <div class="content"  >
+      <form class="commentForm" [formGroup]="form" #formDirective="ngForm" (ngSubmit)="onSubmit(form.value)">
+       <mat-form-field>
+        <mat-label>Leave a comment</mat-label>
+        <textarea matInput placeholder="Ex. It makes me feel..." formControlName="commentaryText"></textarea>
+      </mat-form-field>
+        <button color="accent" mat-raised-button type="submit"   [disabled]="form.invalid">envoyer</button>
+      </form>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]= 2 [rowspan]= 0.5>
+    <div class="content-comment">
+      <mat-card *ngFor="let comment of commentaire$ | async">
+        <button *ngIf="comment.userId === userId" mat-icon-button class="delete-button"  (click)="delete(comment.commentaryId)">
+          <mat-icon color="warn">delete</mat-icon>
+        </button>
+        <div class="date">
+          {{comment.created_at}}
+        </div>
+        <div class="bodyComment">
+          {{comment.commentaryText}}
+        </div>
+      </mat-card>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>

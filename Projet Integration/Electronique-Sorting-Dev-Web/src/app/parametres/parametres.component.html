@@ -1,0 +1,216 @@
+<div class="box">
+  <button class="boutonEnregister" mat-raised-button color="primary" (click)="submitValeurs()">
+    <span class="material-symbols-outlined">save</span>
+    Enregistrer
+  </button>
+
+
+  <mat-card class="valeurs">
+    <mat-card-content>
+      <p class="titre">Valeurs de réapprovisionnement</p>
+      <div class="form_input"> 
+
+        <div class="ligne">
+          <p>Résistances :</p>
+          <mat-form-field>
+            <mat-label>Quantité</mat-label>
+            <input matInput [(ngModel)]="resistanceQuantity" type="number" min="0" />
+          </mat-form-field>
+        </div>
+
+        <div class="messageValidation" *ngIf="messageRestockR.notif">
+          La quantiée de réaprovisinnement des résistances a bien été enregistrée et fixée à {{messageRestockR.valeur}}.
+      </div>
+
+      <div class="ligne">
+        <p>LED :</p>
+          <mat-form-field>
+            <mat-label>Quantité</mat-label>
+            <input matInput [(ngModel)]="ledQuantity" type="number" min="0"/>
+          </mat-form-field>
+      </div>
+
+        <div class="messageValidation" *ngIf="messageRestockL.notif">
+          La quantiée de réaprovisinnement des LEDs a bien été enregistrée et fixée à {{messageRestockL.valeur}}.
+        </div>
+
+        <div class="ligne">
+          <p>Transistors/Puces :</p>
+        <mat-form-field>
+          <mat-label>Quantité</mat-label>
+          <input matInput [(ngModel)]="transistorQuantity" type="number" min="0"/>
+        </mat-form-field>
+        </div>
+
+        <div class="messageValidation" *ngIf="messageRestockT.notif">
+          La quantiée de réaprovisinnement des transistors a bien été enregistrée et fixée à {{messageRestockT.valeur}}.
+        </div>
+
+        <div class="ligne">
+          <p>Condensateur :</p>
+        <mat-form-field>
+          <mat-label>Quantité</mat-label>
+          <input matInput [(ngModel)]="condensteurQuantity" type="number" min="0"/>
+        </mat-form-field>
+        </div>
+        
+        <div class="messageValidation" *ngIf="messageRestockC.notif">
+          La quantiée de réaprovisinnement des condensateurs a bien été enregistrée et fixée à {{messageRestockC.valeur}}.
+        </div>
+
+
+        <div class="ligne">
+          <p>Diode :</p>
+        <mat-form-field>
+          <mat-label>Quantité</mat-label>
+          <input matInput [(ngModel)]="diodeQuantity" type="number" min="0"/>
+        </mat-form-field>
+        </div>
+        
+        <div class="messageValidation" *ngIf="messageRestockD.notif">
+          La quantiée de réaprovisinnement des diodes a bien été enregistrée et fixée à {{messageRestockD.valeur}}.
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+
+<!--
+<div class="box">
+  <button class="boutonEnregister" mat-raised-button color="primary" (click)="submitModifications()">
+    <span class="material-symbols-outlined">save</span>
+    Enregistrer
+  </button>
+
+
+  <mat-card class="modifications">
+    <mat-card-content>
+      <p class="titre">Modifications :</p>
+
+      <div class="form_select">
+
+        <p>Ajout :</p>
+        <div class="ligne">
+        <mat-form-field>
+          <mat-label>Composant</mat-label>
+          <mat-select
+            [(ngModel)]="ajoutComponent"
+            (selectionChange)="updateAjoutOptions()"
+          >
+            <mat-option *ngFor="let option of component" [value]="option.value">
+              {{ option.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Valeur</mat-label>
+          <mat-select [(ngModel)]="ajoutValue">
+            <mat-option
+              *ngFor="let option of ajoutValues"
+              [value]="option.value"
+            >
+              {{ option.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Quantité</mat-label>
+          <input matInput [(ngModel)]="ajoutQuantity" type="number" min="0"/>
+        </mat-form-field>
+        </div>
+        <div class="messageValidation" *ngIf="messageAjouter.notif">
+          Le composant {{messageAjouter.composant}} a été augmenté de {{messageAjouter.quantite}}.
+        </div>
+        <div class="messageValidationError" *ngIf="messageUserInvalideAjouter">
+          Impossible de ajouter le composant car TOUS les champs doivent être remplis.
+        </div>
+        
+      </div>
+
+      <div class="form_select">
+        <p>Retrait :</p>
+
+        <div class="ligne">
+          <mat-form-field>
+            <mat-label>Composant</mat-label>
+            <mat-select
+              [(ngModel)]="retraitComponent"
+              (selectionChange)="updateRetraitOptions()"
+            >
+              <mat-option *ngFor="let option of component" [value]="option.value">
+                {{ option.viewValue }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Valeur</mat-label>
+            <mat-select [(ngModel)]="retraitValue">
+              <mat-option
+                *ngFor="let option of retraitValues"
+                [value]="option.value"
+              >
+                {{ option.viewValue }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Quantité</mat-label>
+            <input matInput [(ngModel)]="retraitQuantity" type="number" min="0"/>
+          </mat-form-field>
+        </div>
+        <div class="messageValidation" *ngIf="messageDiminuer.notif">
+          Le composant {{messageDiminuer.composant}} a été diminué de {{messageDiminuer.quantite}}.
+        </div>
+        <div class="messageValidationError" *ngIf="messageUserInvalideDiminuer">
+          Impossible de diminuer le composant car TOUS les champs doivent être remplis.
+        </div>
+      </div>
+
+    </mat-card-content>
+  </mat-card>
+</div>
+
+
+-->
+
+<div class="box">
+  <button class="boutonEnregister" mat-raised-button color="primary" (click)="submitUtilisateur()">
+    <span class="material-symbols-outlined">save</span>
+    Enregistrer
+  </button>
+
+  <mat-card class="utilisateur">
+    <mat-card-content>
+      <p class="titre">Ajout d'un nouvel utilisateur :</p>
+      <div class="form_input">
+
+        <div class="ligne">
+          <p>Nom :</p>
+          <mat-form-field>
+            <mat-label>Nom</mat-label>
+            <input matInput [(ngModel)]="userLastName" />
+          </mat-form-field>
+        </div>
+
+        <div class="ligne">
+          <p>Prénom :</p>
+          <mat-form-field>
+            <mat-label>Prénom</mat-label>
+            <input matInput [(ngModel)]="userFirstName" />
+          </mat-form-field>
+        </div>
+        <div class="messageValidation" *ngIf="messageUser.notif">
+          L'utiliateur {{messageUser.prenom}} {{messageUser.nom}} a été ajouté.
+        </div>
+        <div class="messageValidationError" *ngIf="messageUserInvalide">
+          Impossible d'ajouter l'utilisateur car le NOM et le PRÉNOM doivent être remplis.
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<div class="box">
+  <app-new-component></app-new-component>
+</div>

@@ -1,0 +1,21 @@
+<div class="window">
+    <h1 mat-dialog-title>Confirmation de la supression</h1>
+    <div mat-dialog-content>
+        <div class="text">
+            Êtes-vous sûr de vouloir supprimer ce composant :
+            <span>&nbsp;</span> <!--un espace--> 
+            <strong>"{{data.name}}</strong>
+            <span>&nbsp;</span> <!--un espace-->
+            <strong>{{data.value}}"</strong> 
+            <span>&nbsp;</span> <!--un espace-->
+            ?
+        </div>
+        <div class="attention">
+            <div>Attention, cette action est irréversible.</div>
+        </div>
+    </div>
+    <div mat-dialog-actions class="buttons">
+        <button mat-button class="button_delete" [mat-dialog-close]="false">Annuler</button>
+        <button mat-button class="button_delete" [mat-dialog-close]="true" cdkFocusInitial><strong>Supprimer</strong></button>
+    </div>
+</div>
